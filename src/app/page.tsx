@@ -808,14 +808,22 @@ return (
 </div>
 
       <div style={{ flex: 1, padding: 20 }}>
-        <h1>CRM Честный Знак</h1>
+        <h1
+  style={{
+    fontSize: 24,
+    marginBottom: 10,
+  }}
+>
+  CRM Честный Знак
+</h1>
         <div
   style={{
     display: "flex",
-    gap: 20,
-    marginTop: 20,
-    marginBottom: 30,
+    gap: 8,
+    marginTop: 10,
+    marginBottom: 15,
     flexWrap: "wrap",
+    alignItems: "center",
   }}
 >
   <div
@@ -1069,7 +1077,7 @@ return (
     setManager(e.target.value)
   }
   style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1099,7 +1107,7 @@ return (
   <button
     onClick={addDeal}
     style={{
-      padding: "10px 20px",
+      padding: "6px 12px",
       background: "green",
       color: "white",
       border: "none",
@@ -1113,7 +1121,7 @@ return (
   <button
     onClick={exportExcel}
     style={{
-      padding: "10px 20px",
+      padding: "6px 12px",
       background: "#2563eb",
       color: "white",
       border: "none",
@@ -1127,7 +1135,7 @@ return (
   <button
   onClick={exportBackup}
   style={{
-    padding: "10px 20px",
+    padding: "6px 12px",
     background: "#7c3aed",
     color: "white",
     border: "none",
@@ -1140,12 +1148,13 @@ return (
 
 <label
   style={{
-    padding: "10px 20px",
-    background: "#2563eb",
-    color: "white",
-    borderRadius: 8,
-    cursor: "pointer",
-    fontWeight: "bold",
+    padding: "6px 12px",
+background: "#2563eb",
+color: "white",
+borderRadius: 6,
+cursor: "pointer",
+fontWeight: 500,
+fontSize: 13,
     boxShadow:
       "0 2px 6px rgba(0,0,0,.2)",
   }}
