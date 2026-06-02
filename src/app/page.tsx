@@ -85,7 +85,7 @@ const [selectedFile, setSelectedFile] =
   const totalDeals = deals.length;
 
 const completedDeals = deals.filter(
-  (deal) => deal.stage === "Завершение"
+  (deal) => deal.stage === "Завершение/проверка"
 ).length;
 
 const totalAmount = deals.reduce(
@@ -97,7 +97,7 @@ const overdueDeals = deals.filter(
   (deal) =>
     deal.deadline &&
     new Date(deal.deadline) < new Date() &&
-    deal.stage !== "Завершение"
+    deal.stage !== "Завершение/проверка"
 ).length;
  useEffect(() => {
   checkUser();
@@ -1471,7 +1471,7 @@ fontSize: 13,
   background:
   deal.deadline &&
   new Date(deal.deadline) < new Date() &&
-  deal.stage !== "Завершение"
+  deal.stage !== "Завершение/проверка"
     ? darkMode
       ? "#7f1d1d"
       : "#fee2e2"
@@ -1494,7 +1494,7 @@ fontSize: 13,
 border:
   deal.deadline &&
   new Date(deal.deadline) < new Date() &&
-  deal.stage !== "Завершение"
+  deal.stage !== "Завершение/проверка"
     ? "2px solid #dc2626"
     : deal.deadline &&
       new Date(deal.deadline).getTime() - new Date().getTime() <
@@ -1559,7 +1559,7 @@ border:
 
           {deal.deadline &&
   new Date(deal.deadline) < new Date() &&
-  deal.stage !== "Завершение" && (
+  deal.stage !== "Завершение/проверка" && (
     <div
       style={{
         marginTop: 8,
