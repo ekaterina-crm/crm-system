@@ -11,13 +11,14 @@ import {
 } from "@hello-pangea/dnd";
 
 const stages = [
-  "Получение ТЗ",
-  "Регистрация",
+  "Получение/проверка ТЗ",
+  "Регистрация/баланс",
   "Создание карточек",
-  "Выпуск кодов",
+  "Заказ и выпуск кодов",
+  "Отправка кодов",
   "Отчет о нанесении",
   "Таможня и ввод в оборот",
-  "Завершение",
+  "Завершение/проверка",
 ];
 
 export default function Home() {
@@ -582,26 +583,29 @@ console.log("HISTORY:", historyResult);
 };
 const getStageColor = (stage: string) => {
   switch (stage) {
-    case "Получение ТЗ":
-      return "#dbeafe";
+    case "Получение/проверка ТЗ":
+      return "#e1c1f3";
 
-    case "Регистрация":
+    case "Регистрация/баланс":
       return "#fef3c7";
 
     case "Создание карточек":
       return "#dcfce7";
 
-    case "Выпуск кодов":
-      return "#ede9fe";
+    case "Заказ и выпуск кодов":
+      return "#f3d4ee";
+
+    case "Отправка кодов":
+      return "#bfdbfe";
 
     case "Отчет о нанесении":
-      return "#fde68a";
+      return "#fef3c7";
 
     case "Таможня и ввод в оборот":
-      return "#bfdbfe";
+      return "#dcfce7";
       
-    case "Завершение":
-      return "#d1fae5";
+    case "Завершение/проверка":
+      return "#bfdbfe";
 
     default:
       return "#e5e7eb";
@@ -1702,10 +1706,12 @@ border:
         }
         placeholder="Имя менеджера"
         style={{
-          padding: 10,
-          borderRadius: 8,
-          border: "1px solid #ccc",
-        }}
+  padding: 10,
+  borderRadius: 8,
+  border: "1px solid #ccc",
+  background: darkMode ? "#1f2937" : "white",
+  color: darkMode ? "white" : "black",
+}}
       />
 
       <button
@@ -1730,14 +1736,14 @@ border:
       <div
         key={manager.id}
         style={{
-          background: "white",
-          padding: 15,
-          borderRadius: 10,
-          marginBottom: 10,
-          display: "flex",
-          justifyContent:
-            "space-between",
-        }}
+  background: darkMode ? "#1f2937" : "white",
+  color: darkMode ? "white" : "black",
+  padding: 15,
+  borderRadius: 10,
+  marginBottom: 10,
+  display: "flex",
+  justifyContent: "space-between",
+}}
       >
         <span>
           👨‍💼 {manager.name}
@@ -1827,13 +1833,22 @@ border:
         <div
           key={deal.id}
           style={{
-            background: "white",
-            padding: 16,
-            borderRadius: 12,
-            marginTop: 12,
-            boxShadow:
-              "0 4px 12px rgba(0,0,0,0.08)",
-          }}
+  background: darkMode
+    ? "#1f2937"
+    : "white",
+
+  color: darkMode
+    ? "white"
+    : "black",
+
+  padding: 16,
+  borderRadius: 12,
+  marginTop: 12,
+
+  boxShadow: darkMode
+    ? "0 4px 12px rgba(0,0,0,0.4)"
+    : "0 4px 12px rgba(0,0,0,0.08)",
+}}
         >
           <b>{deal.client}</b>
 
