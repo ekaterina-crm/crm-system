@@ -1390,7 +1390,7 @@ fontSize: 13,
       ref={provided.innerRef}
       {...provided.droppableProps}
       style={{
-  minWidth: 220,
+  minWidth: 170,
   background: getStageColor(stage),
   borderRadius: 10,
   padding: 8,
@@ -1410,6 +1410,7 @@ fontSize: 13,
     color: "#111827",
     margin: 0,
     fontWeight: "bold",
+    fontSize: 16,
   }}
 >
   {stage}
@@ -1503,10 +1504,11 @@ border:
     ? "2px solid #f59e0b"
     : "1px solid #e5e7eb",
 
-  padding: 10,
-  borderRadius: 8,
-  marginTop: 10,
-  ...provided.draggableProps.style,
+  padding: 6,
+borderRadius: 8,
+marginTop: 6,
+fontSize: 13,
+...provided.draggableProps.style,
 }}
         >
           <b>{deal.client}</b>
@@ -1521,23 +1523,23 @@ border:
             {deal.comment}
           </div>
 
-          <div style={{ marginTop: 6 }}>
+          <div style={{ marginTop: 3 }}>
             📞 {deal.phone}
           </div>
 
-          <div style={{ marginTop: 6 }}>
+          <div style={{ marginTop: 3 }}>
             📧 {deal.email}
           </div>
 
-          <div style={{ marginTop: 6 }}>
+          <div style={{ marginTop: 3 }}>
             👨‍💼 {deal.manager || "Не назначен"}
           </div>
 
-          <div style={{ marginTop: 6 }}>
+          <div style={{ marginTop: 3 }}>
             💰 {deal.amount}
           </div>
 
-          <div style={{ marginTop: 6 }}>
+          <div style={{ marginTop: 3 }}>
             📅 {deal.deadline}
           </div>
 
