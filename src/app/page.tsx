@@ -538,7 +538,7 @@ const onDragEnd = async (result: any) => {
   amount,
   deadline,
   manager,
-  stage: "Получение ТЗ",
+  stage: "Получение/проверка ТЗ",
 }
   ])
   .select()
