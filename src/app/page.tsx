@@ -633,7 +633,7 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 20,
+    padding: 12,
   }}
 >
         <h2>CRM Меню</h2>
@@ -834,9 +834,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 20,
+    padding: 12,
     borderRadius: 12,
-    minWidth: 220,
+    minWidth: 180,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -854,9 +854,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 20,
+    padding: 12,
     borderRadius: 12,
-    minWidth: 220,
+    minWidth: 180,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -874,9 +874,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 20,
+    padding: 12,
     borderRadius: 12,
-    minWidth: 220,
+    minWidth: 180,
   }}
 >
   <div style={{ color: "#666" }}>
@@ -894,9 +894,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 20,
+    padding: 12,
     borderRadius: 12,
-    minWidth: 220,
+    minWidth: 180,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -913,9 +913,9 @@ return (
     color: darkMode
       ? "#fecaca"
       : "#991b1b",
-    padding: 20,
+    padding: 12,
     borderRadius: 12,
-    minWidth: 220,
+    minWidth: 180,
   }}
 >
   <div
@@ -971,7 +971,7 @@ return (
   }
   placeholder="Клиент"
   style={{
-    padding: 10,
+    padding: 6,
     border: darkMode
       ? "1px solid #6b7280"
       : "1px solid #ccc",
@@ -994,7 +994,7 @@ return (
     }
     placeholder="Комментарий"
     style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1015,7 +1015,7 @@ return (
     }
     placeholder="Телефон"
     style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1036,7 +1036,7 @@ return (
     }
     placeholder="Email"
     style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1057,7 +1057,7 @@ return (
     }
     placeholder="Сумма"
     style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1107,7 +1107,7 @@ return (
   <button
     onClick={addDeal}
     style={{
-      padding: "6px 12px",
+      padding: "4px 8px",
       background: "green",
       color: "white",
       border: "none",
@@ -1121,7 +1121,7 @@ return (
   <button
     onClick={exportExcel}
     style={{
-      padding: "6px 12px",
+      padding: "4px 8px",
       background: "#2563eb",
       color: "white",
       border: "none",
@@ -1135,7 +1135,7 @@ return (
   <button
   onClick={exportBackup}
   style={{
-    padding: "6px 12px",
+    padding: "4px 8px",
     background: "#7c3aed",
     color: "white",
     border: "none",
@@ -1148,7 +1148,7 @@ return (
 
 <label
   style={{
-    padding: "6px 12px",
+    padding: "4px 8px",
 background: "#2563eb",
 color: "white",
 borderRadius: 6,
@@ -1207,7 +1207,7 @@ fontSize: 13,
     setDeadline(e.target.value)
   }
   style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1228,7 +1228,7 @@ fontSize: 13,
   }
   placeholder="Поиск"
   style={{
-  padding: 10,
+  padding: 6,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1307,7 +1307,7 @@ fontSize: 13,
       placeholder="Новый пароль"
       style={{
         width: 300,
-        padding: 10,
+        padding: 6,
         display: "block",
         marginBottom: 10,
       }}
@@ -1324,7 +1324,7 @@ fontSize: 13,
       placeholder="Повторите пароль"
       style={{
         width: 300,
-        padding: 10,
+        padding: 6,
         display: "block",
         marginBottom: 10,
       }}
@@ -1717,7 +1717,7 @@ fontSize: 13,
         }
         placeholder="Имя менеджера"
         style={{
-  padding: 10,
+  padding: 6,
   borderRadius: 8,
   border: "1px solid #ccc",
   background: darkMode ? "#1f2937" : "white",
@@ -1800,7 +1800,7 @@ fontSize: 13,
   color: darkMode
     ? "white"
     : "black",
-  padding: 20,
+  padding: 12,
   borderRadius: 12,
   marginTop: 12,
   boxShadow:
@@ -1911,7 +1911,7 @@ fontSize: 13,
         placeholder="Клиент"
         style={{
           width: "100%",
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
 
           background: darkMode
@@ -1936,7 +1936,7 @@ border: darkMode
         placeholder="Телефон"
         style={{
           width: "100%",
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
         background: darkMode
   ? "#374151"
@@ -1960,7 +1960,7 @@ border: darkMode
         placeholder="Email"
         style={{
           width: "100%",
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
           background: darkMode
   ? "#374151"
@@ -1984,7 +1984,7 @@ border: darkMode
         placeholder="Сумма"
         style={{
           width: "100%",
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
           background: darkMode
   ? "#374151"
@@ -2008,7 +2008,7 @@ border: darkMode
         }
         style={{
           width: "100%",
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
           background: darkMode
   ? "#374151"
@@ -2030,7 +2030,7 @@ border: darkMode
   }
   style={{
     width: "100%",
-    padding: 10,
+    padding: 6,
     marginBottom: 10,
     background: darkMode
   ? "#374151"
@@ -2062,7 +2062,7 @@ border: darkMode
   }
   style={{
     width: "100%",
-    padding: 10,
+    padding: 6,
     marginBottom: 10,
     background: darkMode
   ? "#374151"
@@ -2096,7 +2096,7 @@ border: darkMode
         style={{
           width: "100%",
           minHeight: 100,
-          padding: 10,
+          padding: 6,
           marginBottom: 10,
           background: darkMode
   ? "#374151"
@@ -2120,7 +2120,7 @@ border: darkMode
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
-    padding: 10,
+    padding: 6,
     borderRadius: 8,
   }}
 >
@@ -2162,7 +2162,7 @@ border: darkMode
   style={{
     width: "100%",
     minHeight: 80,
-    padding: 10,
+    padding: 6,
     marginBottom: 10,
     background: darkMode
   ? "#374151"
@@ -2233,7 +2233,7 @@ border: darkMode
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
-    padding: 10,
+    padding: 6,
     borderRadius: 8,
   }}
 >
