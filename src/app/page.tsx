@@ -1390,11 +1390,11 @@ fontSize: 13,
       ref={provided.innerRef}
       {...provided.droppableProps}
       style={{
-        minWidth: 250,
-        background: getStageColor(stage),
-        borderRadius: 10,
-        padding: 10,
-      }}
+  minWidth: 220,
+  background: getStageColor(stage),
+  borderRadius: 10,
+  padding: 8,
+}}
     >
       <div
   style={{
