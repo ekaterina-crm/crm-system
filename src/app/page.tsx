@@ -1810,7 +1810,11 @@ border:
   <div style={{ marginTop: 40 }}>
     <h2>База клиентов</h2>
 
-    {[...new Set(deals.map((deal) => deal.client))].map(
+    {[...new Set(
+  deals
+    .filter((deal) => !deal.archived)
+    .map((deal) => deal.client)
+)].map(
       (clientName, index) => {
         const clientDeals = deals.filter(
           (d) => d.client === clientName
@@ -1851,9 +1855,11 @@ border:
       if (!ok) return;
 
       await supabase
-        .from("deals")
-        .delete()
-        .eq("client", clientName);
+  .from("deals")
+  .update({
+    archived: true,
+  })
+  .eq("client", clientName);
 
       fetchDeals();
     }}
@@ -1895,6 +1901,58 @@ border:
     )}
   </div>
 )}
+<h2 style={{ marginTop: 40 }}>
+  ♻ Архив клиентов
+</h2>
+
+{[
+  ...new Set(
+    deals
+      .filter((d) => d.archived)
+      .map((d) => d.client)
+  ),
+].map((clientName) => (
+  <div
+    key={clientName}
+    style={{
+      background: darkMode
+        ? "#1f2937"
+        : "white",
+      color: darkMode
+        ? "white"
+        : "black",
+      padding: 12,
+      borderRadius: 12,
+      marginTop: 10,
+    }}
+  >
+    <b>{clientName}</b>
+
+    <button
+      onClick={async () => {
+        await supabase
+          .from("deals")
+          .update({
+            archived: false,
+          })
+          .eq("client", clientName);
+
+        fetchDeals();
+      }}
+      style={{
+        marginLeft: 15,
+        background: "#16a34a",
+        color: "white",
+        border: "none",
+        borderRadius: 6,
+        padding: "6px 10px",
+        cursor: "pointer",
+      }}
+    >
+      ♻ Восстановить
+    </button>
+  </div>
+))}
 {activeTab === "calendar" && (
   <div style={{ marginTop: 40 }}>
     <h2>Календарь задач</h2>
