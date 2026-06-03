@@ -214,10 +214,16 @@ const addManager = async () => {
 const deleteManager = async (
   id: number
 ) => {
-  await supabase
+  console.log("DELETE CLICK:", id);
+
+  const { data, error } = await supabase
     .from("managers")
     .delete()
-    .eq("id", id);
+    .eq("id", id)
+    .select();
+
+  console.log("DELETE DATA:", data);
+  console.log("DELETE ERROR:", error);
 
   fetchManagers();
 };
@@ -1773,21 +1779,20 @@ border:
         </span>
 
         <button
-          onClick={() =>
-            deleteManager(
-              manager.id
-            )
-          }
-          style={{
-            background: "#dc2626",
-            color: "white",
-            border: "none",
-            borderRadius: 6,
-            padding: "4px 10px",
-          }}
-        >
-          Удалить
-        </button>
+  onClick={() => {
+    alert("Кнопка работает");
+    deleteManager(manager.id);
+  }}
+  style={{
+    background: "#dc2626",
+    color: "white",
+    border: "none",
+    borderRadius: 6,
+    padding: "4px 10px",
+  }}
+>
+  Удалить
+</button>
       </div>
     ))}
   </div>
