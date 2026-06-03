@@ -1833,7 +1833,42 @@ border:
     "0 4px 12px rgba(0,0,0,0.08)",
 }}
           >
-            <h3>{clientName}</h3>
+            <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }}
+>
+  <h3>{clientName}</h3>
+
+  <button
+    onClick={async () => {
+      const ok = confirm(
+        `Удалить клиента "${clientName}" и все его сделки?`
+      );
+
+      if (!ok) return;
+
+      await supabase
+        .from("deals")
+        .delete()
+        .eq("client", clientName);
+
+      fetchDeals();
+    }}
+    style={{
+      background: "#dc2626",
+      color: "white",
+      border: "none",
+      borderRadius: 6,
+      padding: "6px 10px",
+      cursor: "pointer",
+    }}
+  >
+    🗑 Удалить клиента
+  </button>
+</div>
 
             <div>
               Сделок: {clientDeals.length}
