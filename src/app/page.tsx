@@ -1911,6 +1911,9 @@ border:
     padding: 15,
     borderRadius: 12,
     width: 420,
+
+    maxHeight: "85vh",
+    overflowY: "auto",
   }}
 >
   <h2>Редактирование сделки</h2>
@@ -2107,7 +2110,7 @@ border: darkMode
         placeholder="Комментарий"
         style={{
           width: "100%",
-          minHeight: 100,
+          minHeight: 60,
           padding: 6,
           marginBottom: 10,
           background: darkMode
@@ -2128,7 +2131,7 @@ border: darkMode
 
 <div
   style={{
-    maxHeight: 150,
+    maxHeight: 100,
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
@@ -2173,7 +2176,7 @@ border: darkMode
   placeholder="Добавить новый комментарий..."
   style={{
     width: "100%",
-    minHeight: 80,
+    minHeight: 50,
     padding: 6,
     marginBottom: 10,
     background: darkMode
@@ -2241,7 +2244,7 @@ border: darkMode
 
 <div
   style={{
-    maxHeight: 150,
+    maxHeight: 100,
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
