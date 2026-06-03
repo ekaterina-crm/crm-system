@@ -214,7 +214,7 @@ const addManager = async () => {
 const deleteManager = async (
   id: number
 ) => {
-  console.log("DELETE CLICK:", id);
+  alert("Удаляем менеджера " + id);
 
   const { data, error } = await supabase
     .from("managers")
@@ -224,6 +224,13 @@ const deleteManager = async (
 
   console.log("DELETE DATA:", data);
   console.log("DELETE ERROR:", error);
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Удалено");
 
   fetchManagers();
 };
