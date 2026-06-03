@@ -30,6 +30,8 @@ export default function Home() {
   const [amount, setAmount] = useState("");
   const [deadline, setDeadline] = useState("");
 
+  const [role, setRole] = useState("");
+
   const [search, setSearch] = useState("");
 
   const [manager, setManager] =
@@ -113,6 +115,16 @@ const checkUser = async () => {
   if (!session) {
     router.push("/login");
     return;
+  }
+
+  const { data } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("email", session.user.email)
+    .single();
+
+  if (data) {
+    setRole(data.role);
   }
 
   fetchDeals();
@@ -714,27 +726,29 @@ return (
     👥 Клиенты
   </button>
 
+  {role === "admin" && (
   <button
-  onClick={() =>
-    setActiveTab("managers")
-  }
-  style={{
-    width: "100%",
-    padding: 12,
-    marginBottom: 10,
-    border: "none",
-    borderRadius: 8,
-    cursor: "pointer",
-    background:
-      activeTab === "managers"
-        ? "#2563eb"
-        : "#1f2937",
-    color: "white",
-    textAlign: "left",
-  }}
->
-  👨‍💼 Менеджеры
-</button>
+    onClick={() =>
+      setActiveTab("managers")
+    }
+    style={{
+      width: "100%",
+      padding: 12,
+      marginBottom: 10,
+      border: "none",
+      borderRadius: 8,
+      cursor: "pointer",
+      background:
+        activeTab === "managers"
+          ? "#2563eb"
+          : "#1f2937",
+      color: "white",
+      textAlign: "left",
+    }}
+  >
+    👨‍💼 Менеджеры
+  </button>
+)}
 
  <button
   onClick={() => {
@@ -1664,30 +1678,32 @@ border:
             Следующий этап
           </button>
 
-          <button
-  onClick={async () => {
-    await supabase
-      .from("deals")
-      .update({
-        archived: true,
-      })
-      .eq("id", deal.id);
+          {role === "admin" && (
+  <button
+    onClick={async () => {
+      await supabase
+        .from("deals")
+        .update({
+          archived: true,
+        })
+        .eq("id", deal.id);
 
-    fetchDeals();
-  }}
-  style={{
-    marginTop: 5,
-    padding: "4px 8px",
-    fontSize: 12,
-    border: "none",
-    borderRadius: 6,
-    background: "#f59e0b",
-    color: "white",
-    cursor: "pointer",
-  }}
->
-  📦 В архив
-</button>
+      fetchDeals();
+    }}
+    style={{
+      marginTop: 5,
+      padding: "4px 8px",
+      fontSize: 12,
+      border: "none",
+      borderRadius: 6,
+      background: "#f59e0b",
+      color: "white",
+      cursor: "pointer",
+    }}
+  >
+    📦 В архив
+  </button>
+)}
 
           <button
             onClick={async () => {
@@ -1846,6 +1862,7 @@ border:
 >
   <h3>{clientName}</h3>
 
+  {role === "admin" && (
   <button
     onClick={async () => {
       const ok = confirm(
@@ -1855,11 +1872,11 @@ border:
       if (!ok) return;
 
       await supabase
-  .from("deals")
-  .update({
-    archived: true,
-  })
-  .eq("client", clientName);
+        .from("deals")
+        .update({
+          archived: true,
+        })
+        .eq("client", clientName);
 
       fetchDeals();
     }}
@@ -1874,6 +1891,7 @@ border:
   >
     🗑 Удалить клиента
   </button>
+)}
 </div>
 
             <div>
@@ -1953,6 +1971,7 @@ border:
     </button>
   </div>
 ))}
+
 {activeTab === "calendar" && (
   <div style={{ marginTop: 40 }}>
     <h2>Календарь задач</h2>
