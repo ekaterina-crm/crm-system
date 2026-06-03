@@ -84,10 +84,6 @@ const [selectedFile, setSelectedFile] =
 
   const router = useRouter();
 
-  const activeDeals = deals.filter(
-  (deal) => !deal.archived
-);
-
 const activeDeals = deals.filter(
   (deal) => !deal.archived
 );
