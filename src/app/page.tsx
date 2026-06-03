@@ -88,6 +88,10 @@ const [selectedFile, setSelectedFile] =
   (deal) => !deal.archived
 );
 
+const activeDeals = deals.filter(
+  (deal) => !deal.archived
+);
+
 const totalDeals = activeDeals.length;
 
 const completedDeals = activeDeals.filter(
