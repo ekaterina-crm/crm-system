@@ -834,9 +834,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 12,
+    padding: 8,
     borderRadius: 12,
-    minWidth: 180,
+    minWidth: 140,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -854,9 +854,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 12,
+    padding: 8,
     borderRadius: 12,
-    minWidth: 180,
+    minWidth: 140,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -874,9 +874,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 12,
+    padding: 8,
     borderRadius: 12,
-    minWidth: 180,
+    minWidth: 140,
   }}
 >
   <div style={{ color: "#666" }}>
@@ -894,9 +894,9 @@ return (
     color: darkMode
       ? "white"
       : "black",
-    padding: 12,
+    padding: 8,
     borderRadius: 12,
-    minWidth: 180,
+    minWidth: 140,
   }}
 >
     <div style={{ color: "#666" }}>
@@ -913,9 +913,9 @@ return (
     color: darkMode
       ? "#fecaca"
       : "#991b1b",
-    padding: 12,
+    padding: 8,
     borderRadius: 12,
-    minWidth: 180,
+    minWidth: 140,
   }}
 >
   <div
@@ -971,7 +971,8 @@ return (
   }
   placeholder="Клиент"
   style={{
-    padding: 6,
+    padding: 4,
+    fontSize: 13,
     border: darkMode
       ? "1px solid #6b7280"
       : "1px solid #ccc",
@@ -994,7 +995,8 @@ return (
     }
     placeholder="Комментарий"
     style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1015,7 +1017,8 @@ return (
     }
     placeholder="Телефон"
     style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1036,7 +1039,8 @@ return (
     }
     placeholder="Email"
     style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1057,7 +1061,8 @@ return (
     }
     placeholder="Сумма"
     style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1077,7 +1082,8 @@ return (
     setManager(e.target.value)
   }
   style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1207,7 +1213,8 @@ fontSize: 13,
     setDeadline(e.target.value)
   }
   style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1228,7 +1235,8 @@ fontSize: 13,
   }
   placeholder="Поиск"
   style={{
-  padding: 6,
+  padding: 4,
+  fontSize: 13,
   border: "1px solid #ccc",
   borderRadius: 8,
 
@@ -1390,7 +1398,7 @@ fontSize: 13,
       ref={provided.innerRef}
       {...provided.droppableProps}
       style={{
-  minWidth: 170,
+  minWidth: 150,
   background: getStageColor(stage),
   borderRadius: 10,
   padding: 8,
@@ -1504,10 +1512,10 @@ border:
     ? "2px solid #f59e0b"
     : "1px solid #e5e7eb",
 
-  padding: 6,
-borderRadius: 8,
-marginTop: 6,
-fontSize: 13,
+  padding: 4,
+  borderRadius: 8,
+  marginTop: 6,
+  fontSize: 12,
 ...provided.draggableProps.style,
 }}
         >
@@ -1595,7 +1603,8 @@ fontSize: 13,
   style={{
     marginTop: 10,
     marginRight: 10,
-    padding: "6px 10px",
+    padding: "4px 8px",
+    fontSize: 12,
     background: "#f59e0b",
     color: "white",
     border: "none",
@@ -1628,7 +1637,8 @@ fontSize: 13,
 }}
             style={{
               marginTop: 10,
-              padding: "6px 10px",
+              padding: "4px 8px",
+              fontSize: 12,
               background: "#2563eb",
               color: "white",
               border: "none",
@@ -1652,7 +1662,8 @@ fontSize: 13,
   }}
   style={{
     marginTop: 5,
-    padding: "6px 10px",
+    padding: "4px 8px",
+    fontSize: 12,
     border: "none",
     borderRadius: 6,
     background: "#f59e0b",
@@ -1675,7 +1686,8 @@ fontSize: 13,
             style={{
               marginTop: 10,
               marginLeft: 10,
-              padding: "6px 10px",
+              padding: "4px 8px",
+              fontSize: 12,
               background: "#dc2626",
               color: "white",
               border: "none",
@@ -1896,9 +1908,9 @@ fontSize: 13,
       ? "white"
       : "black",
 
-    padding: 25,
+    padding: 15,
     borderRadius: 12,
-    width: 500,
+    width: 420,
   }}
 >
   <h2>Редактирование сделки</h2>
@@ -2116,11 +2128,11 @@ border: darkMode
 
 <div
   style={{
-    maxHeight: 200,
+    maxHeight: 150,
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
-    padding: 6,
+    padding: 4,
     borderRadius: 8,
   }}
 >
@@ -2229,11 +2241,11 @@ border: darkMode
 
 <div
   style={{
-    maxHeight: 200,
+    maxHeight: 150,
     overflowY: "auto",
     marginBottom: 15,
     border: "1px solid #ddd",
-    padding: 6,
+    padding: 4,
     borderRadius: 8,
   }}
 >
