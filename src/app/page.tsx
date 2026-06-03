@@ -225,6 +225,8 @@ const deleteManager = async (
   console.log("DELETE DATA:", data);
   console.log("DELETE ERROR:", error);
 
+  alert(JSON.stringify(data));
+
   if (error) {
     alert(error.message);
     return;
