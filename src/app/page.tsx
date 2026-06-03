@@ -1706,28 +1706,37 @@ border:
 )}
 
           <button
-            onClick={async () => {
-  await supabase
-    .from("deals")
-    .delete()
-    .eq("id", deal.id);
+  onClick={async () => {
+    if (role === "admin") {
+      await supabase
+        .from("deals")
+        .delete()
+        .eq("id", deal.id);
+    } else {
+      await supabase
+        .from("deals")
+        .update({
+          archived: true,
+        })
+        .eq("id", deal.id);
+    }
 
-  fetchDeals();
-}}
-            style={{
-              marginTop: 10,
-              marginLeft: 10,
-              padding: "4px 8px",
-              fontSize: 12,
-              background: "#dc2626",
-              color: "white",
-              border: "none",
-              borderRadius: 6,
-              cursor: "pointer",
-            }}
-          >
-            Удалить
-          </button>
+    fetchDeals();
+  }}
+  style={{
+    marginTop: 10,
+    marginLeft: 10,
+    padding: "4px 8px",
+    fontSize: 12,
+    background: "#dc2626",
+    color: "white",
+    border: "none",
+    borderRadius: 6,
+    cursor: "pointer",
+  }}
+>
+  Удалить
+</button>
         </div>
       )}
     </Draggable>
