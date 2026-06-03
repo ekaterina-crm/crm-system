@@ -1877,34 +1877,63 @@ border:
   <h3>{clientName}</h3>
 
   {role === "admin" && (
-  <button
-    onClick={async () => {
-      const ok = confirm(
-        `Удалить клиента "${clientName}" и все его сделки?`
-      );
+  <div style={{ display: "flex", gap: 8 }}>
+    <button
+      onClick={async () => {
+        const ok = confirm(
+          `Отправить клиента "${clientName}" в архив?`
+        );
 
-      if (!ok) return;
+        if (!ok) return;
 
-      await supabase
-        .from("deals")
-        .update({
-          archived: true,
-        })
-        .eq("client", clientName);
+        await supabase
+          .from("deals")
+          .update({
+            archived: true,
+          })
+          .eq("client", clientName);
 
-      fetchDeals();
-    }}
-    style={{
-      background: "#dc2626",
-      color: "white",
-      border: "none",
-      borderRadius: 6,
-      padding: "6px 10px",
-      cursor: "pointer",
-    }}
-  >
-    🗑 Удалить клиента
-  </button>
+        fetchDeals();
+      }}
+      style={{
+        background: "#2563eb",
+        color: "white",
+        border: "none",
+        borderRadius: 6,
+        padding: "6px 10px",
+        cursor: "pointer",
+      }}
+    >
+      📦 В архив
+    </button>
+
+    <button
+      onClick={async () => {
+        const ok = confirm(
+          `Удалить клиента "${clientName}" НАВСЕГДА?`
+        );
+
+        if (!ok) return;
+
+        await supabase
+          .from("deals")
+          .delete()
+          .eq("client", clientName);
+
+        fetchDeals();
+      }}
+      style={{
+        background: "#dc2626",
+        color: "white",
+        border: "none",
+        borderRadius: 6,
+        padding: "6px 10px",
+        cursor: "pointer",
+      }}
+    >
+      🗑 Удалить навсегда
+    </button>
+  </div>
 )}
 </div>
 
