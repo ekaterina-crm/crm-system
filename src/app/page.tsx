@@ -84,18 +84,23 @@ const [selectedFile, setSelectedFile] =
 
   const router = useRouter();
 
-  const totalDeals = deals.length;
+  const activeDeals = deals.filter(
+  (deal) => !deal.archived
+);
 
-const completedDeals = deals.filter(
+const totalDeals = activeDeals.length;
+
+const completedDeals = activeDeals.filter(
   (deal) => deal.stage === "Завершение/проверка"
 ).length;
 
-const totalAmount = deals.reduce(
+const totalAmount = activeDeals.reduce(
   (sum, deal) =>
     sum + Number(deal.amount || 0),
   0
 );
-const overdueDeals = deals.filter(
+
+const overdueDeals = activeDeals.filter(
   (deal) =>
     deal.deadline &&
     new Date(deal.deadline) < new Date() &&
@@ -959,7 +964,7 @@ return (
 
   <h2>
     {
-      deals.filter((d) => {
+      activeDeals.filter((d) => {
         if (!d.deadline) return false;
 
         const diff =
