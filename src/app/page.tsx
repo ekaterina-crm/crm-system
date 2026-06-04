@@ -799,6 +799,23 @@ return (
     : "🌙 Тёмная тема"}
 </button>
 
+<button
+  onClick={() => router.push("/assistant")}
+  style={{
+    width: "100%",
+    padding: 12,
+    marginBottom: 10,
+    border: "none",
+    borderRadius: 8,
+    cursor: "pointer",
+    background: "#1f2937",
+    color: "white",
+    textAlign: "left",
+  }}
+>
+  🤖 AI Ассистент
+</button>
+
   <button
     onClick={() => setActiveTab("calendar")}
     style={{
