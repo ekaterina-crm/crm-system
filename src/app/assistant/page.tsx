@@ -56,7 +56,15 @@ export default function AssistantPage() {
   };
 
   return (
-    <div style={{ padding: 30, maxWidth: 900, margin: "0 auto" }}>
+    <div
+  style={{
+    padding: 30,
+    maxWidth: 900,
+    margin: "0 auto",
+    position: "relative",
+    zIndex: 1,
+  }}
+>
       <h1>🤖 AI Ассистент Честный Знак</h1>
 
       <div
@@ -109,6 +117,10 @@ export default function AssistantPage() {
           borderRadius: 10,
           border: "1px solid #ddd",
           marginBottom: 10,
+          position: "relative",
+          zIndex: 2,
+          background: "white",
+          color: "black",
         }}
       />
 
