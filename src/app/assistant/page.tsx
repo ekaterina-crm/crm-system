@@ -106,6 +106,47 @@ export default function AssistantPage() {
         {loading && <div>AI думает...</div>}
       </div>
 
+      <div
+  style={{
+    display: "flex",
+    gap: 10,
+    flexWrap: "wrap",
+    marginBottom: 15,
+  }}
+>
+  <button
+    onClick={() =>
+      setMessage("Как заказать коды маркировки?")
+    }
+  >
+    Заказать коды
+  </button>
+
+  <button
+    onClick={() =>
+      setMessage("Как ввести товар в оборот?")
+    }
+  >
+    Ввод в оборот
+  </button>
+
+  <button
+    onClick={() =>
+      setMessage("Что делать после нанесения кодов?")
+    }
+  >
+    После нанесения
+  </button>
+
+  <button
+    onClick={() =>
+      setMessage("Какие этапы CRM по Честному Знаку?")
+    }
+  >
+    Этапы CRM
+  </button>
+</div>
+
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
