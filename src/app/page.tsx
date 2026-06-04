@@ -1875,6 +1875,7 @@ border:
   }}
 >
   <h3>{clientName}</h3>
+  <div>ROLE: {role}</div>
 
   {role === "admin" && (
   <div style={{ display: "flex", gap: 8 }}>
