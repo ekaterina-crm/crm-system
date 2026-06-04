@@ -1875,27 +1875,26 @@ border:
   }}
 >
   <h3>{clientName}</h3>
-  <div>ROLE: {role}</div>
 
-  {role === "admin" && (
-  <div style={{ display: "flex", gap: 8 }}>
-    <button
-      onClick={async () => {
-        const ok = confirm(
-          `Отправить клиента "${clientName}" в архив?`
-        );
+<div style={{ display: "flex", gap: 8 }}>
 
-        if (!ok) return;
+<button
+  onClick={async () => {
+    const ok = confirm(
+      `Отправить клиента "${clientName}" в архив?`
+    );
 
-        await supabase
-          .from("deals")
-          .update({
-            archived: true,
-          })
-          .eq("client", clientName);
+    if (!ok) return;
 
-        fetchDeals();
-      }}
+    await supabase
+      .from("deals")
+      .update({
+        archived: true,
+      })
+      .eq("client", clientName);
+
+    fetchDeals();
+  }}
       style={{
         background: "#2563eb",
         color: "white",
@@ -1935,7 +1934,6 @@ border:
       🗑 Удалить навсегда
     </button>
   </div>
-)}
 </div>
 
             <div>
