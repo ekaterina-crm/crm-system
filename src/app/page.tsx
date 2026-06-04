@@ -1875,6 +1875,9 @@ border:
   }}
 >
   <h3>{clientName}</h3>
+  <div style={{color:"red"}}>
+  ТЕСТ КНОПОК
+</div>
 
 <div style={{ display: "flex", gap: 8 }}>
 
