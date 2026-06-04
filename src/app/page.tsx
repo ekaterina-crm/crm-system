@@ -128,6 +128,9 @@ const checkUser = async () => {
     .eq("email", session.user.email)
     .single();
 
+  console.log("ROLE DATA:", data);
+  console.log("EMAIL:", session.user.email);
+
   if (data) {
     setRole(data.role);
   }
