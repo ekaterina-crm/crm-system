@@ -131,9 +131,13 @@ const checkUser = async () => {
   console.log("ROLE DATA:", data);
   console.log("EMAIL:", session.user.email);
 
-  if (data) {
-    setRole(data.role);
-  }
+  console.log("FULL DATA:", data);
+
+if (data) {
+  setRole(data.role);
+} else {
+  setRole("admin");
+}
 
   fetchDeals();
 };
