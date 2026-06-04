@@ -128,15 +128,8 @@ const checkUser = async () => {
     .eq("email", session.user.email)
     .single();
 
-  console.log("ROLE DATA:", data);
-  console.log("EMAIL:", session.user.email);
-
-  console.log("FULL DATA:", data);
-
 if (data) {
   setRole(data.role);
-} else {
-  setRole("admin");
 }
 
   fetchDeals();
