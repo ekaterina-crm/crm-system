@@ -816,6 +816,23 @@ return (
   🤖 AI Ассистент
 </button>
 
+<button
+  onClick={() => router.push("/smarti")}
+  style={{
+    width: "100%",
+    padding: 12,
+    marginBottom: 10,
+    border: "none",
+    borderRadius: 8,
+    cursor: "pointer",
+    background: "#1f2937",
+    color: "white",
+    textAlign: "left",
+  }}
+>
+  🧠 SMARTI
+</button>
+
   <button
     onClick={() => setActiveTab("calendar")}
     style={{

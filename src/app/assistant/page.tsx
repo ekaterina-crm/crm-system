@@ -12,48 +12,50 @@ export default function AssistantPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const askAssistant = async () => {
-    if (!message.trim()) return;
+  const askAssistant = async (customMessage?: string) => {
+  const text = customMessage || message;
 
-    const userMessage: Message = {
-      role: "user",
-      text: message,
-    };
+  if (!text.trim()) return;
 
-    setMessages((prev) => [...prev, userMessage]);
-    setMessage("");
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/assistant", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
-      });
-
-      const data = await res.json();
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          text: data.answer || "Нет ответа",
-        },
-      ]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          text: "Ошибка соединения с AI-ассистентом",
-        },
-      ]);
-    }
-
-    setLoading(false);
+  const userMessage: Message = {
+    role: "user",
+    text,
   };
+
+  setMessages((prev) => [...prev, userMessage]);
+  setMessage("");
+  setLoading(true);
+
+  try {
+    const res = await fetch("/api/assistant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message: text }),
+    });
+
+    const data = await res.json();
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        text: data.answer || "Нет ответа",
+      },
+    ]);
+  } catch {
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        text: "Ошибка соединения с AI-ассистентом",
+      },
+    ]);
+  }
+
+  setLoading(false);
+};
 
   return (
     <div
@@ -114,37 +116,21 @@ export default function AssistantPage() {
     marginBottom: 15,
   }}
 >
-  <button
-    onClick={() =>
-      setMessage("Как заказать коды маркировки?")
-    }
-  >
-    Заказать коды
-  </button>
+  <button onClick={() => askAssistant("Как заказать коды маркировки?")}>
+  Заказать коды
+</button>
 
-  <button
-    onClick={() =>
-      setMessage("Как ввести товар в оборот?")
-    }
-  >
-    Ввод в оборот
-  </button>
+<button onClick={() => askAssistant("Как ввести товар в оборот?")}>
+  Ввод в оборот
+</button>
 
-  <button
-    onClick={() =>
-      setMessage("Что делать после нанесения кодов?")
-    }
-  >
-    После нанесения
-  </button>
+<button onClick={() => askAssistant("Что делать после нанесения кодов?")}>
+  После нанесения
+</button>
 
-  <button
-    onClick={() =>
-      setMessage("Какие этапы CRM по Честному Знаку?")
-    }
-  >
-    Этапы CRM
-  </button>
+<button onClick={() => askAssistant("Какие этапы CRM по Честному Знаку?")}>
+  Этапы CRM
+</button>
 </div>
 
       <textarea
@@ -168,7 +154,7 @@ export default function AssistantPage() {
       <br />
 
       <button
-        onClick={askAssistant}
+        onClick={() => askAssistant()}
         disabled={loading}
         style={{
           padding: "12px 20px",
