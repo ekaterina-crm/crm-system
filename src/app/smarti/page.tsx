@@ -296,13 +296,30 @@ const exportAnalysis = () => {
       <td style={tdStyle}>{item.fsa_status}</td>
       <td style={tdStyle}>
   {item.fsa_link ? (
-    <a
-      href={item.fsa_link}
-      target="_blank"
-      rel="noreferrer"
-    >
-      Проверить
-    </a>
+    <button
+  onClick={async () => {
+    const res = await fetch("/api/smarti/fsa-check", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        certificateNumber: item.certificate_number,
+      }),
+    });
+
+    const data = await res.json();
+
+    const updated = [...analysis];
+    updated[index] = {
+      ...updated[index],
+      fsa_status: data.status || "ошибка проверки",
+      fsa_link: data.url || updated[index].fsa_link,
+    };
+
+    setAnalysis(updated);
+  }}
+>
+  Проверить
+</button>
   ) : (
     "-"
   )}
