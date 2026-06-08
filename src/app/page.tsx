@@ -23,6 +23,7 @@ const stages = [
 
 export default function Home() {
   const [deals, setDeals] = useState<any[]>([]);
+  const [loadingDeals, setLoadingDeals] = useState(true);
   const [client, setClient] = useState("");
   const [comment, setComment] = useState("");
   const [phone, setPhone] = useState("");
@@ -108,8 +109,15 @@ const overdueDeals = activeDeals.filter(
 ).length;
  useEffect(() => {
   checkUser();
-  fetchDeals();
   fetchManagers();
+
+  const loadDeals = async () => {
+    setLoadingDeals(true);
+    await fetchDeals();
+    setLoadingDeals(false);
+  };
+
+  loadDeals();
 }, []);
 
 const checkUser = async () => {
