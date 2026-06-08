@@ -269,8 +269,9 @@ const uploadFile = async () => {
   if (!selectedFile || !editingDeal)
     return;
 
-  const filePath =
-    `${editingDeal.id}/${Date.now()}-${selectedFile.name}`;
+  const ext = selectedFile.name.split(".").pop() || "file";
+const safeFileName = `${Date.now()}.${ext}`;
+const filePath = `${editingDeal.id}/${safeFileName}`;
 
   const { data, error } =
     await supabase.storage
