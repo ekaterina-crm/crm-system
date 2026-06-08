@@ -544,24 +544,37 @@ const onDragEnd = async (result: any) => {
   const newStage =
     result.destination.droppableId;
 
-  await supabase
+  const oldDeals = [...deals];
+
+  setDeals(
+    deals.map((deal) =>
+      deal.id === dealId
+        ? { ...deal, stage: newStage }
+        : deal
+    )
+  );
+
+  const { error } = await supabase
     .from("deals")
     .update({
       stage: newStage,
     })
     .eq("id", dealId);
 
+  if (error) {
+    setDeals(oldDeals);
+    alert("Ошибка сохранения");
+    return;
+  }
+
   await supabase
     .from("deal_history")
     .insert([
       {
         deal_id: dealId,
-        action:
-          `Перемещена на этап: ${newStage}`,
+        action: `Перемещена на этап: ${newStage}`,
       },
     ]);
-
-  fetchDeals();
 };
 
 
