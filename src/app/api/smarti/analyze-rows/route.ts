@@ -74,16 +74,18 @@ export async function POST(req: Request) {
   ];
 });
 
-    const { data: ecoRules2414 } = ecoSearchParts.length
-      ? await supabase
-          .from("eco_fee_rules_2414")
-          .select("tnved_code, okpd2_code, product_group, product_name, tnved_name")
-          .or(ecoSearchParts.join(","))
-      : { data: [] };
+    const { data: allEcoRules2414, error: ecoRulesError } = await supabase
+  .from("eco_fee_rules_2414")
+  .select("tnved_code, okpd2_code, product_group, product_name, tnved_name");
 
-      console.log(
-  "ECO RULES FOUND:",
-  ecoRules2414?.length || 0
+if (ecoRulesError) {
+  console.error("ECO RULES ERROR:", ecoRulesError);
+}
+
+const ecoRules2414 = (allEcoRules2414 || []).filter((rule: any) =>
+  tnvedCodes.some((code: string) =>
+    code.startsWith(String(rule.tnved_code || ""))
+  )
 );
 
     const { data: confirmedEcoCodes } = await supabase
