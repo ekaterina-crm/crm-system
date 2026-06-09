@@ -88,9 +88,9 @@ const ecoRules2414 = (allEcoRules2414 || []).filter((rule: any) =>
   )
 );
 
-    const { data: confirmedEcoCodes } = await supabase
-      .from("confirmed_eco_tnved")
-      .select("tnved_code, comment");
+    const { data: confirmedEcoCodes, error: confirmedEcoError } = await supabase
+  .from("confirmed_eco_tnved")
+  .select("tnved_code, comment");
 
     const { data: markingRules } = await supabase
       .from("marking_rules")
@@ -269,9 +269,16 @@ if (tnved === "8539520009") {
 }
 
         const confirmedEcoMatch = (confirmedEcoCodes || []).find((rule: any) => {
-          const ruleCode = String(rule.tnved_code || "").replace(/\D/g, "");
-          return ruleCode && tnved && tnved.startsWith(ruleCode);
-        });
+  const ruleCode = String(rule.tnved_code || "").replace(/\D/g, "");
+  const rowCode = String(tnved || "").replace(/\D/g, "");
+
+  if (!ruleCode || !rowCode) return false;
+
+  return rowCode.slice(0, 4) === ruleCode.slice(0, 4);
+});
+
+if (String(tnved || "").startsWith("4011")) {
+}
 
         const tnvedOkpd2Match = (tnvedOkpd2Mapping || []).find(
   (rule: any) =>
